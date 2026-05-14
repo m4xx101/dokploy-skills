@@ -6,11 +6,32 @@ echo "========================================"
 echo ""
 
 SKILLS_DIR="${HERMES_SKILLS_DIR:-$HOME/.hermes/skills/devops}"
+TARGET="$SKILLS_DIR/dokploy"
+TMPDIR=$(mktemp -d)
 
-mkdir -p "$SKILLS_DIR/dokploy"
+# Determine source: local script or piped from web
+if [[ "$0" == "bash" ]] || [[ "$0" == "/dev/stdin" ]]; then
+    # piped via curl | bash — clone the repo
+    echo "Detected piped install — cloning from GitHub..."
+    git clone --depth 1 https://github.com/m4xx101/dokploy-skills.git "$TMPDIR/repo"
+    SOURCE="$TMPDIR/repo"
+else
+    SOURCE="$(cd "$(dirname "$0")" && pwd)"
+fi
 
-echo "Installing to $SKILLS_DIR/dokploy/"
-cp -r "$(dirname "$0")"/* "$SKILLS_DIR/dokploy/" 2>/dev/null || true
+mkdir -p "$TARGET"
+
+# Copy all skill files (skip .git, installer scripts)
+echo "Installing to $TARGET"
+find "$SOURCE" -maxdepth 1 -type f \( -name "*.md" -o -name ".gitignore" \) -exec cp {} "$TARGET/" \;
+for dir in "$SOURCE"/*/; do
+    dirname=$(basename "$dir")
+    [[ "$dirname" == ".git" ]] && continue
+    cp -r "$dir" "$TARGET/"
+done
+
+# Cleanup temp if we cloned
+[[ -n "${TMPDIR:-}" ]] && rm -rf "$TMPDIR"
 
 echo ""
 echo "Done."
