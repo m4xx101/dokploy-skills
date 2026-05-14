@@ -28,19 +28,19 @@ Agent: "Found my-app. Validated compose syntax. Deploying via API... Deploy comp
 ### Linux / macOS
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/YOUR_USERNAME/dokploy-skills/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/m4xx101/dokploy-skills/main/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/YOUR_USERNAME/dokploy-skills/main/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/m4xx101/dokploy-skills/main/install.ps1 | iex
 ```
 
 ### From GitHub (Manual)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dokploy-skills.git
+git clone https://github.com/m4xx101/dokploy-skills.git
 cp -r dokploy-skills/Skills/dokploy ~/.hermes/skills/devops/
 ```
 
@@ -255,4 +255,4 @@ MIT — see [LICENSE](LICENSE)
 - [Hermes Agent Documentation](https://hermes-agent.nousresearch.com/docs)
 - [Dokploy Documentation](https://dokploy.com/docs)
 - [Dokploy API Reference](https://dokploy.com/docs/api)
-- [`hostinger-server-sec`](https://github.com/YOUR_USERNAME/dokploy-skills) — Companion skill for server hardening
+- [`hostinger-server-sec`](https://github.com/m4xx101/dokploy-skills) — Companion skill for server hardening
