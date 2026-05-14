@@ -255,4 +255,3 @@ MIT — see [LICENSE](LICENSE)
 - [Hermes Agent Documentation](https://hermes-agent.nousresearch.com/docs)
 - [Dokploy Documentation](https://dokploy.com/docs)
 - [Dokploy API Reference](https://dokploy.com/docs/api)
-- [`hostinger-server-sec`](https://github.com/m4xx101/dokploy-skills) — Companion skill for server hardening
