@@ -37,11 +37,11 @@ curl -sSL https://raw.githubusercontent.com/m4xx101/dokploy-skills/main/install.
 iwr -useb https://raw.githubusercontent.com/m4xx101/dokploy-skills/main/install.ps1 | iex
 ```
 
-### From GitHub (Manual)
+### From GitHub (Manual) (change <agent> as per your consuming agent it works with all STOA agents)
 
 ```bash
 git clone https://github.com/m4xx101/dokploy-skills.git
-cp -r dokploy-skills/Skills/dokploy ~/.hermes/skills/devops/
+cp -r dokploy-skills/Skills/dokploy ~/.<agent>/skills/devops/
 ```
 
 ---
